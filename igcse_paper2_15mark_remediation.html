@@ -844,7 +844,7 @@ OUTPUT <span class="str">"Highest usage: Space " , MaxSpace , " (" , RegPlate[Ma
   <pre><code><span class="cm">// SECTION A — input and validate hours for all 50 spaces over 5 days</span>
 <span class="kw">FOR</span> Space ← <span class="num">1</span> <span class="kw">TO</span> <span class="num">50</span>
    <span class="kw">FOR</span> Day ← <span class="num">1</span> <span class="kw">TO</span> <span class="num">5</span>
-      OUTPUT <span class="str">"Enter hours for space "</span> &amp; Space &amp; <span class="str">" on day "</span> &amp; Day &amp; <span class="str">": "</span>
+      OUTPUT <span class="str">"Enter hours for space "</span> , Space , <span class="str">" on day "</span> , Day , <span class="str">": "</span>
       Hours ← USERINPUT
       <span class="kw">WHILE</span> Hours &lt; <span class="num">1</span> <span class="kw">OR</span> Hours &gt; <span class="num">12</span>
          OUTPUT <span class="str">"Invalid. Enter hours between 1 and 12: "</span>
@@ -876,11 +876,11 @@ MaxSpace ← <span class="num">0</span>
       MaxHours ← TotalHours
       MaxSpace ← Space
    <span class="kw">ENDIF</span>
-   OUTPUT <span class="str">"Space: "</span> &amp; Space &amp; <span class="str">" | Plate: "</span> &amp; RegPlate[Space] &amp; <span class="str">" | Fee: $"</span> &amp; TotalFeePerSpace[Space]
+   OUTPUT <span class="str">"Space: "</span> , Space , <span class="str">" | Plate: "</span> , RegPlate[Space] , <span class="str">" | Fee: $"</span> , TotalFeePerSpace[Space]
 <span class="kw">NEXT</span> Space
 
-OUTPUT <span class="str">"Highest usage — Space: "</span> &amp; MaxSpace &amp; <span class="str">" ("</span> &amp; RegPlate[MaxSpace] &amp; <span class="str">") — "</span> &amp; MaxHours &amp; <span class="str">" hours"</span>
-OUTPUT <span class="str">"Total weekly revenue: $"</span> &amp; TotalRevenue</code></pre>
+OUTPUT <span class="str">"Highest usage — Space: "</span> , MaxSpace, <span class="str">" ("</span> , RegPlate[MaxSpace] , <span class="str">") — "</span> , MaxHours , <span class="str">" hours"</span>
+OUTPUT <span class="str">"Total weekly revenue: $"</span> , TotalRevenue</code></pre>
 
   <hr class="rule">
 
@@ -1006,7 +1006,7 @@ OUTPUT <span class="str">"Total weekly revenue: $"</span> &amp; TotalRevenue</co
     <text x="50" y="90" font-size="12" font-weight="600" fill="#27500A" font-family="'IBM Plex Mono',monospace">FOR Room ← 1 TO 20</text>
     <rect x="60" y="98" width="550" height="68" rx="4" fill="#c0dd97" stroke="#97c459" stroke-width="0.75"/>
     <text x="80" y="118" font-size="12" fill="#173404" font-family="'IBM Plex Mono',monospace">  FOR Night ← 1 TO 7</text>
-    <text x="80" y="136" font-size="12" fill="#173404" font-family="'IBM Plex Mono',monospace">    Guests ← INPUT("Room " &amp; Room &amp; " night " &amp; Night)</text>
+    <text x="80" y="136" font-size="12" fill="#173404" font-family="'IBM Plex Mono',monospace">    Guests ← INPUT("Room " , Room , " night " , Night)</text>
     <text x="80" y="154" font-size="11.5" fill="#173404" font-family="'IBM Plex Mono',monospace">    WHILE Guests &lt; 0 OR Guests &gt; 4 → re-prompt  |  NightsOccupied[Room][Night] ← Guests</text>
 
     <!-- Arrow A→B -->
@@ -1034,10 +1034,10 @@ OUTPUT <span class="str">"Total weekly revenue: $"</span> &amp; TotalRevenue</co
     <!-- Section C body -->
     <rect x="30" y="433" width="600" height="90" rx="6" fill="#e6f1fb" stroke="#85b7eb" stroke-width="1"/>
     <text x="50" y="453" font-size="12" fill="#042c53" font-family="'IBM Plex Mono',monospace">FOR Room ← 1 TO 20  →  IF RoomFee[Room] &gt; MaxFee THEN update MaxFee, MaxRoom</text>
-    <text x="50" y="471" font-size="12" fill="#042c53" font-family="'IBM Plex Mono',monospace">  OUTPUT "Room " &amp; Room &amp; " weekly fee: $" &amp; RoomFee[Room]</text>
+    <text x="50" y="471" font-size="12" fill="#042c53" font-family="'IBM Plex Mono',monospace">  OUTPUT "Room " , Room , " weekly fee: $" , RoomFee[Room]</text>
     <text x="50" y="489" font-size="12" fill="#042c53" font-family="'IBM Plex Mono',monospace">NEXT Room</text>
-    <text x="50" y="507" font-size="12" fill="#042c53" font-family="'IBM Plex Mono',monospace">OUTPUT "Highest revenue: Room " &amp; MaxRoom &amp; " — $" &amp; MaxFee</text>
-    <text x="50" y="525" font-size="12" fill="#042c53" font-family="'IBM Plex Mono',monospace">OUTPUT "Total hotel revenue: $" &amp; TotalRevenue</text>
+    <text x="50" y="507" font-size="12" fill="#042c53" font-family="'IBM Plex Mono',monospace">OUTPUT "Highest revenue: Room " , MaxRoom , " — $" , MaxFee</text>
+    <text x="50" y="525" font-size="12" fill="#042c53" font-family="'IBM Plex Mono',monospace">OUTPUT "Total hotel revenue: $" , TotalRevenue</text>
   </svg>
 
   <div class="alert alert-info">
@@ -1104,7 +1104,7 @@ ENDIF</pre>
     <span class="sc-tag">4f — output with message</span>
     <div class="q-prompt">Write an OUTPUT that displays the room number and its total weekly fee with a suitable message.</div>
     <button class="toggle-btn" onclick="toggleAns(this)">▶ show answer</button>
-    <div class="answer-reveal"><code>OUTPUT "Room " &amp; Room &amp; " — weekly fee: $" &amp; RoomFee[Room]</code></div>
+    <div class="answer-reveal"><code>OUTPUT "Room " , Room , " — weekly fee: $" , RoomFee[Room]</code></div>
   </div>
 
 </section>
@@ -1214,7 +1214,7 @@ ENDIF</pre>
   <pre><code><span class="cm">// SECTION A — input and validate guest count for all rooms and nights</span>
 <span class="kw">FOR</span> Room ← <span class="num">1</span> <span class="kw">TO</span> <span class="num">20</span>
    <span class="kw">FOR</span> Night ← <span class="num">1</span> <span class="kw">TO</span> <span class="num">7</span>
-      OUTPUT <span class="str">"Enter number of guests for room "</span> &amp; Room &amp; <span class="str">" on night "</span> &amp; Night &amp; <span class="str">": "</span>
+      OUTPUT <span class="str">"Enter number of guests for room "</span> , Room , <span class="str">" on night "</span> , Night , <span class="str">": "</span>
       Guests ← USERINPUT
       <span class="kw">WHILE</span> Guests &lt; <span class="num">0</span> <span class="kw">OR</span> Guests &gt; <span class="num">4</span>
          OUTPUT <span class="str">"Invalid. Enter a value from 0 to 4: "</span>
@@ -1242,11 +1242,11 @@ MaxRoom ← <span class="num">0</span>
       MaxFee ← RoomFee[Room]
       MaxRoom ← Room
    <span class="kw">ENDIF</span>
-   OUTPUT <span class="str">"Room "</span> &amp; Room &amp; <span class="str">" — weekly fee: $"</span> &amp; RoomFee[Room]
+   OUTPUT <span class="str">"Room "</span> , Room , <span class="str">" — weekly fee: $"</span> , RoomFee[Room]
 <span class="kw">NEXT</span> Room
 
-OUTPUT <span class="str">"Highest revenue room: Room "</span> &amp; MaxRoom &amp; <span class="str">" ($"</span> &amp; MaxFee &amp; <span class="str">")"</span>
-OUTPUT <span class="str">"Total hotel revenue for the week: $"</span> &amp; TotalRevenue</code></pre>
+OUTPUT <span class="str">"Highest revenue room: Room "</span> , MaxRoom , <span class="str">" ($"</span> , MaxFee , <span class="str">")"</span>
+OUTPUT <span class="str">"Total hotel revenue for the week: $"</span> , TotalRevenue</code></pre>
 
   <hr class="rule">
 
